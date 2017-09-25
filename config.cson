@@ -1,0 +1,52 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "2ac65d19-da5d-4f94-85a2-24edf1e6a717"
+  "config-import-export":
+    defaultPath:
+      win32: "C:\\Users\\pol12025\\Desktop"
+  core:
+    disabledPackages: [
+      "linter"
+      "linter-jshint"
+      "linter-ui-default"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-dark-ui"
+      "darkular-syntax"
+    ]
+  editor:
+    backUpBeforeSaving: true
+    fontFamily: "consolas"
+    fontSize: 16
+    invisibles: {}
+    preferredLineLength: 100
+    scrollPastEnd: true
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "553829f5-1cb8-b29b-2880-9823fc2e199e"
+  linter: {}
+  "linter-jshint":
+    lintInlineJavaScript: true
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  pigments:
+    markerType: "gutter"
+  "todo-show":
+    findTheseTodos: [
+      "TODO"
+    ]
+    saveOutputAs: "Table"
+    showInTable: [
+      "Type"
+      "Text"
+      "File"
+    ]
+    sortBy: "Type"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

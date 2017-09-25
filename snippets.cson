@@ -1,0 +1,152 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+'.source.js':
+  'ES6 Angular Service':
+    'prefix': 'ng6Service'
+    'body': """
+\'use strict\';
+class ${1:ServiceName} {
+  constructor ($http, $q) {
+    this.$http = $http;
+    this.$q = $q;
+  }
+}
+
+${1:ServiceName}.$inject = ["$http", "$q"];
+export default ${1:ServiceName};
+    """
+  'ES6 Angular Provider':
+    'prefix': 'ng6Provider'
+    'body': """
+\'use strict\';
+class {$1:ProviderName} {
+  constructor() {
+
+  }
+
+  $get() {
+    return {
+
+    };
+  }
+}
+{$1:ProviderName}.$inject = [];
+export default ${1:ProviderName};
+    """
+  'ES6 Angular Component':
+    'prefix': 'ng6Component'
+    'body': """
+\'use strict\';
+class ${1:ComponentName}Controller {
+  constructor() {
+
+  }
+
+  $onInit() {
+
+  }
+
+  $onChanges(obj) {
+
+  }
+
+  $onDestroy() {
+
+  }
+}
+${1:ComponentName}Controller.$inject = [];
+
+export default {
+  bindings: {},
+  controller: ${1:ComponentName}Controller,
+  controllerAs: \'vm${2:Ctrl}\',
+  template: require(\'${3:templatePath}\')
+};
+    """
+  'ES6 Angular SubModule':
+    'prefix': 'ng6SubModule'
+    'body': """
+\'use strict\';
+import \'angular\';
+import {states, otherwise} from \"./routes.js\";
+
+const ${1:moduleName} = angular.module("${2:appName}.${1:moduleName}", ["${2:appName}.core"])
+  .run([\'$cpsRouteHelper\', ($cpsRouteHelper) => {
+    $cpsRouteHelper.configureStates(states, otherwise);
+  }])
+  .name;
+
+export default ${1:moduleName};
+    """
+  'ES6 Angular Routes':
+    'prefix': 'ng6Routes'
+    'body': """
+\'use strict\';
+let states = [{
+  'state': '${1:stateName}',
+  'config' : {
+    url: '${2:url}',
+    views: {
+      "main": {
+        template: \"${3:template}\"
+      }
+    }
+    resolve: {
+      ${4:resolves}
+    }
+  }
+}];
+let otherwise = '/${5:fallbackUrl}';
+
+export {states, otherwise};
+    """
+'.text.html':
+  'CPS Page':
+    'prefix': 'cpsPage'
+    'body': """
+<cps-page>
+  <cps-header>
+    <cps-page-title display-title="\'${1:PageTitle}\'"></cps-page-title>
+    <cps-toolbar display-title="\'${1:PageTitle}\'"></cps-toolbar>
+    $2
+  </cps-header>
+  <cps-content>
+    $3
+  </cps-content>
+  <cps-footer>
+    $4
+  </cps-footer>
+</cps-page>
+      """
+  'CPS Tabs':
+    'prefix': 'cpsToolbarTabs'
+    'body': """
+<cps-toolbar-tabs hide-tabs="${1:HideTabs}" class="cps-fade-out"
+  selected-tab="${2:SelectedTab}" on-tab-change="${3:OnTabChange}">
+  $4
+</cps-toolbar-tabs>
+      """
+  'CPS Tab':
+    'prefix': 'cpsTab'
+    'body': """
+<cps-toolbar-tab tab-id="${1:TabId}" display-title="${2:TabTitle}" callback="${3:callback}"></cps-toolbar-tab>
+    """
