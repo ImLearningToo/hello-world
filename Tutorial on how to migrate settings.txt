@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/30006827/how-to-save-atom-editor-config-and-list-of-packages-installed
+
+export settings:
+apm list --installed --bare > ~/.atom/package.list
+
+import settings:
+apm install --packages-file ~/.atom/package.list
